@@ -1,0 +1,45 @@
+inherit qt4-qmake gnome2
+
+DESCRIPTION="BitTorrent client with command-line, GTK+, and Qt interfaces"
+HOMEPAGE="http://www.transmissionbt.com/"
+SRC_URI="http://mirrors.m0k.org/transmission/files/${P}.tar.xz"
+PATCH_URI="1.82-qmake.patch"
+
+PKG_NAMES="${PN} ${PN}-gtk ${PN}-qt"
+transmission_CONTENTS="--exclude=transmission.exe --exclude=transmission.1*
+                       usr/bin/transmission*.exe usr/share/doc/ usr/share/man/
+                       usr/share/pixmaps/ usr/share/${PN}/"
+transmission_gtk_CONTENTS="etc/ usr/bin/transmission.exe usr/share/applications/${PN}.desktop
+                           usr/share/icons/ usr/share/locale/ usr/share/man/man1/${PN}.1*"
+transmission_qt_CONTENTS="usr/bin/qtr.exe usr/share/applications/qtr.desktop"
+
+CYGCONF_ARGS="
+	--enable-cli
+	--enable-daemon
+	--enable-gtk
+	--disable-mac
+	--without-inotify
+	--without-kqueue
+"
+
+src_compile() {
+	cd ${S}
+	gnome2_autoreconf
+	cd ${B}
+	gnome2_compile
+
+	mkdir -p ${B}/qt
+	cd ${B}/qt
+	cygqmake4 ${S}/qt/qtr.pro
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	cd ${B}/qt
+	qt4_qmake_install
+
+	make_desktop_entry qtr "Transmission BitTorrent Client (Qt)" transmission "Network;FileTransfer;P2P;Qt"
+}

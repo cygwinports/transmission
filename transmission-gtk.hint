@@ -1,0 +1,7 @@
+category: Net Gnome
+requires: transmission libcanberra0 libcanberra-gtk0 libdbus-glib_1_2 libgconf2_4 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libnotify1 libpango1.0_0
+external-source: transmission
+sdesc: "BitTorrent client (GTK+ interface)"
+ldesc: "Transmission is a cross-platform BitTorrent client that is 
+designed to balance power and usability.  It comes with command-line, 
+GTK+, and Qt interfaces."

@@ -1,0 +1,20 @@
+--- origsrc/transmission-1.82/qt/qtr.pro	2010-01-23 09:11:13.000000000 -0600
++++ src/transmission-1.82/qt/qtr.pro	2010-01-28 04:41:49.054385300 -0600
+@@ -4,7 +4,7 @@ DESCRIPTION = "Transmission: a fast, eas
+ VERSION = 1.60
+ LICENSE = "GPL"
+ 
+-target.path = /bin
++target.path = $$[QT_INSTALL_PREFIX]/bin
+ INSTALLS += target
+ 
+ CONFIG += qt thread debug link_pkgconfig
+@@ -17,7 +17,7 @@ LIBS += $${TRANSMISSION_TOP}/libtransmis
+ LIBS += $${TRANSMISSION_TOP}/third-party/dht/libdht.a
+ LIBS += $${TRANSMISSION_TOP}/third-party/miniupnp/libminiupnp.a
+ LIBS += $${TRANSMISSION_TOP}/third-party/libnatpmp/libnatpmp.a
+-LIBS += $${TRANSMISSION_TOP}/third-party/libevent/.libs/libevent.a
++LIBS += -levent
+ 
+ TRANSLATIONS += transmission_en.ts transmission_ru.ts
+ 
