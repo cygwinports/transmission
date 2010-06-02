@@ -3,7 +3,7 @@ inherit qt4-qmake gnome2
 DESCRIPTION="BitTorrent client with command-line, GTK+, and Qt interfaces"
 HOMEPAGE="http://www.transmissionbt.com/"
 SRC_URI="http://mirrors.m0k.org/transmission/files/${P}.tar.xz"
-PATCH_URI="1.82-qmake.patch"
+PATCH_URI="1.93-qmake.patch"
 
 PKG_NAMES="${PN} ${PN}-gtk ${PN}-qt"
 transmission_CONTENTS="--exclude=transmission.exe --exclude=transmission.1*
