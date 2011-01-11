@@ -1,5 +1,5 @@
 category: Net KDE
-requires: transmission libQtCore4 libQtGui4 libQtNetwork4 libstdc++6
+requires: transmission libQtCore4 libQtDBus4 libQtGui4 libQtNetwork4 libstdc++6
 external-source: transmission
 sdesc: "BitTorrent client (Qt interface)"
 ldesc: "Transmission is a cross-platform BitTorrent client that is 

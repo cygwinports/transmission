@@ -1,0 +1,24 @@
+--- origsrc/transmission-2.13/qt/qtr.pro	2011-01-11 05:07:17.172557300 -0600
++++ src/transmission-2.13/qt/qtr.pro	2011-01-11 04:44:58.598223200 -0600
+@@ -4,11 +4,11 @@
+ VERSION = 2.00
+ LICENSE = "GPL"
+ 
+-target.path = /bin
++target.path = $${PREFIX}/bin
+ INSTALLS += target
+ 
+ unix: INSTALLS += man
+-man.path = /share/man/man1/
++man.path = $${PREFIX}/share/man/man1/
+ man.files = transmission-qt.1
+ 
+ CONFIG += qt qdbus thread debug link_pkgconfig
+@@ -22,6 +22,7 @@
+ LIBS += $${TRANSMISSION_TOP}/third-party/miniupnp/libminiupnp.a
+ LIBS += $${TRANSMISSION_TOP}/third-party/libnatpmp/libnatpmp.a
+ unix: LIBS += -levent -lz
++cygwin-g++: LIBS += -lintl
+ win32:DEFINES += QT_DBUS
+ win32:LIBS += -levent -lws2_32 -lintl
+ win32:LIBS += -lidn -liconv -lwldap32 -liphlpapi
