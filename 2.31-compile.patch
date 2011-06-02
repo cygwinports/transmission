@@ -1,0 +1,10 @@
+snprintf is not ANSI C
+
+--- origsrc/transmission-2.31/third-party/libutp/Makefile.am	2011-05-17 17:17:37.000000000 -0500
++++ src/transmission-2.31/third-party/libutp/Makefile.am	2011-06-01 23:49:38.866778700 -0500
+@@ -1,4 +1,4 @@
+-AM_CPPFLAGS = -fno-exceptions -fno-rtti -ansi -DPOSIX
++AM_CPPFLAGS = -fno-exceptions -fno-rtti -DPOSIX
+ 
+ noinst_LIBRARIES = libutp.a
+ libutp_a_SOURCES = utp.cpp utp_utils.cpp

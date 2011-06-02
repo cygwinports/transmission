@@ -1,0 +1,10 @@
+--- origsrc/transmission-2.31/qt/qtr.pro	2011-05-17 17:17:35.000000000 -0500
++++ src/transmission-2.31/qt/qtr.pro	2011-06-02 00:25:18.581163400 -0500
+@@ -24,6 +24,7 @@ LIBS += $${TRANSMISSION_TOP}/third-party
+ LIBS += $${TRANSMISSION_TOP}/third-party/miniupnp/libminiupnp.a
+ LIBS += $${TRANSMISSION_TOP}/third-party/libnatpmp/libnatpmp.a
+ unix: LIBS += -L$${EVENT_TOP}/lib -lz -lrt
++cygwin-g++:LIBS += -lintl
+ win32:DEFINES += QT_DBUS
+ win32:LIBS += -levent-2.0 -lws2_32 -lintl
+ win32:LIBS += -lidn -liconv -lwldap32 -liphlpapi
