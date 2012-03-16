@@ -5,7 +5,7 @@ HOMEPAGE="http://www.transmissionbt.com/"
 SRC_URI="http://mirrors.m0k.org/transmission/files/${P}.tar.xz"
 
 PATCH_URI="2.31-compile.patch
-	   2.31-qmake.patch"
+	   2.50-qmake.patch"
 
 PKG_NAMES="${PN} ${PN}-gtk ${PN}-qt"
 transmission_CONTENTS="--exclude=*-gtk.* --exclude=*-qt.*

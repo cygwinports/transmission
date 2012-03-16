@@ -1,0 +1,10 @@
+--- origsrc/transmission-2.50/qt/qtr.pro	2012-02-14 20:00:23.423832100 -0600
++++ src/transmission-2.50/qt/qtr.pro	2012-03-16 00:32:56.673340400 -0500
+@@ -27,6 +27,7 @@ LIBS += $${TRANSMISSION_TOP}/third-party
+ LIBS += $${LIBUPNP_LIBS}
+ LIBS += $${LIBNATPMP_LIBS}
+ unix: LIBS += -L$${EVENT_TOP}/lib -lz -lrt
++cygwin-g++:LIBS += -lintl
+ win32:DEFINES += QT_DBUS
+ win32:LIBS += -levent-2.0 -lws2_32 -lintl
+ win32:LIBS += -lidn -liconv -lwldap32 -liphlpapi
