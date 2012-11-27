@@ -1,6 +1,13 @@
 inherit qt4-qmake gnome2
 
-DESCRIPTION="BitTorrent client with command-line, GTK+, and Qt interfaces"
+NAME="transmission"
+VERSION=2.73
+RELEASE=1
+CATEGORY="Net"
+SUMMARY="BitTorrent client"
+DESCRIPTION="Transmission is a cross-platform BitTorrent client that is
+designed to balance power and usability.  It comes with command-line, web,
+GTK+, and Qt interfaces."
 HOMEPAGE="http://www.transmissionbt.com/"
 SRC_URI="http://mirrors.m0k.org/transmission/files/${P}.tar.xz"
 
@@ -8,11 +15,16 @@ PATCH_URI="2.31-compile.patch
 	   2.50-qmake.patch"
 
 PKG_NAMES="${PN} ${PN}-gtk ${PN}-qt"
+transmission_SUMMARY="${SUMMARY} (command-line interface, daemon)"
 transmission_CONTENTS="--exclude=*-gtk.* --exclude=*-qt.*
                        usr/bin/transmission*.exe usr/share/doc/ usr/share/man/
                        usr/share/pixmaps/ usr/share/${PN}/"
+transmission_gtk_SUMMARY="${SUMMARY} (GTK+ GUI)"
+transmission_gtk_REQUIRES=${NAME}
 transmission_gtk_CONTENTS="etc/ usr/bin/${PN}-gtk.exe usr/share/applications/${PN}-gtk.desktop
                            usr/share/icons/ usr/share/locale/ usr/share/man/man1/${PN}-gtk.1*"
+transmission_qt_SUMMARY="${SUMMARY} (Qt GUI)"
+transmission_qt_REQUIRES=${NAME}
 transmission_qt_CONTENTS="usr/bin/${PN}-qt.exe usr/share/applications/${PN}-qt.desktop
                           usr/share/man/man1/${PN}-qt.*"
 
