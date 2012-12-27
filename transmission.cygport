@@ -1,7 +1,7 @@
 inherit qt4-qmake gnome2
 
 NAME="transmission"
-VERSION=2.73
+VERSION=2.75
 RELEASE=1
 CATEGORY="Net"
 SUMMARY="BitTorrent client"
