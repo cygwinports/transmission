@@ -1,7 +1,7 @@
 inherit qt4-qmake gnome2
 
 NAME="transmission"
-VERSION=2.75
+VERSION=2.76
 RELEASE=1
 CATEGORY="Net"
 SUMMARY="BitTorrent client"
@@ -27,6 +27,8 @@ transmission_qt_SUMMARY="${SUMMARY} (Qt GUI)"
 transmission_qt_REQUIRES=${NAME}
 transmission_qt_CONTENTS="usr/bin/${PN}-qt.exe usr/share/applications/${PN}-qt.desktop
                           usr/share/man/man1/${PN}-qt.*"
+
+DIFF_EXCLUDES="config.pri"
 
 CYGCONF_ARGS="
 	--enable-cli
