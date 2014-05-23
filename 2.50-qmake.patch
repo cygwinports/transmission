@@ -1,5 +1,13 @@
 --- origsrc/transmission-2.50/qt/qtr.pro	2012-02-14 20:00:23.423832100 -0600
 +++ src/transmission-2.50/qt/qtr.pro	2012-03-16 00:32:56.673340400 -0500
+@@ -11,7 +11,7 @@ unix: INSTALLS += man
+ man.path = /share/man/man1/
+ man.files = transmission-qt.1
+ 
+-CONFIG += qt thread debug link_pkgconfig c++11 warn_on
++CONFIG += qt thread link_pkgconfig c++11 warn_on
+ QT += network dbus
+ PKGCONFIG = fontconfig libcurl openssl libevent
 @@ -27,6 +27,7 @@ LIBS += $${TRANSMISSION_TOP}/third-party
  LIBS += $${LIBUPNP_LIBS}
  LIBS += $${LIBNATPMP_LIBS}
