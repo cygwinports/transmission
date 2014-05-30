@@ -8,6 +8,7 @@
 +CONFIG += qt thread link_pkgconfig c++11 warn_on
  QT += network dbus
  PKGCONFIG = fontconfig libcurl openssl libevent
+ 
 @@ -27,6 +27,7 @@ LIBS += $${TRANSMISSION_TOP}/third-party
  LIBS += $${LIBUPNP_LIBS}
  LIBS += $${LIBNATPMP_LIBS}
