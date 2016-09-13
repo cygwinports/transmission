@@ -14,6 +14,6 @@
  LIBS += $${LIBNATPMP_LIBS}
  unix: LIBS += -L$${EVENT_TOP}/lib -lz -lrt
 +cygwin-g++:LIBS += -lintl
- win32:DEFINES += QT_DBUS
  win32:LIBS += -levent-2.0 -lws2_32 -lintl
  win32:LIBS += -lidn -liconv -lwldap32 -liphlpapi
+ 

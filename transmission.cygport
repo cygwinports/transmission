@@ -1,7 +1,7 @@
 inherit qt4-qmake gnome2
 
 NAME="transmission"
-VERSION=2.84
+VERSION=2.92
 RELEASE=1
 CATEGORY="Net"
 SUMMARY="BitTorrent client"
@@ -9,12 +9,10 @@ DESCRIPTION="Transmission is a cross-platform BitTorrent client that is
 designed to balance power and usability.  It comes with command-line, web,
 GTK+, and Qt interfaces."
 HOMEPAGE="http://www.transmissionbt.com/"
-SRC_URI="http://mirrors.m0k.org/transmission/files/${NAME}-${VERSION}.tar.xz"
-
+SRC_URI="https://github.com/transmission/transmission-releases/raw/master/transmission-${VERSION}.tar.xz"
 PATCH_URI="
 	2.31-compile.patch
 	2.50-qmake.patch
-	2.83-platform-cygwin.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-gtk ${NAME}-qt"
