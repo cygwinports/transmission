@@ -2,7 +2,7 @@ inherit qt4-qmake gnome2
 
 NAME="transmission"
 VERSION=2.92
-RELEASE=2
+RELEASE=3
 CATEGORY="Net"
 SUMMARY="BitTorrent client"
 DESCRIPTION="Transmission is a cross-platform BitTorrent client that is
