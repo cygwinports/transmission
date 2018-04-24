@@ -1,0 +1,64 @@
+--- origsrc/transmission-2.93/cli/Makefile.am	2018-01-23 13:17:42.995774300 -0600
++++ src/transmission-2.93/cli/Makefile.am	2018-04-23 20:48:58.707568800 -0500
+@@ -25,5 +25,6 @@ transmission_cli_LDADD = \
+     @INTLLIBS@ \
+     @ZLIB_LIBS@ \
+     @PTHREAD_LIBS@ \
++    $(LIBICONV) \
+     ${LIBM}
+ 
+--- origsrc/transmission-2.93/configure.ac	2018-01-23 13:17:42.996774300 -0600
++++ src/transmission-2.93/configure.ac	2018-04-23 20:40:34.836115000 -0500
+@@ -107,10 +107,11 @@ AC_HEADER_STDC
+ AC_HEADER_TIME
+ 
+ AC_CHECK_HEADERS([stdbool.h xlocale.h])
+-AC_CHECK_FUNCS([iconv pread pwrite lrintf strlcpy daemon dirname basename canonicalize_file_name strcasecmp localtime_r fallocate64 posix_fallocate memmem strsep strtold syslog valloc getpagesize posix_memalign statvfs htonll ntohll mkdtemp uselocale _configthreadlocale])
++AC_CHECK_FUNCS([pread pwrite lrintf strlcpy daemon dirname basename canonicalize_file_name strcasecmp localtime_r fallocate64 posix_fallocate memmem strsep strtold syslog valloc getpagesize posix_memalign statvfs htonll ntohll mkdtemp uselocale _configthreadlocale])
+ AC_PROG_INSTALL
+ AC_PROG_MAKE_SET
+ ACX_PTHREAD
++AM_ICONV
+ 
+ if test "x$ac_cv_func_strtold" != "xyes" ; then
+     CPPFLAGS="$CPPFLAGS -Dstrtold=strtod"
+--- origsrc/transmission-2.93/daemon/Makefile.am	2018-01-23 13:17:42.996774300 -0600
++++ src/transmission-2.93/daemon/Makefile.am	2018-04-23 20:49:06.077158700 -0500
+@@ -32,6 +32,7 @@ LDADD = \
+     @SYSTEMD_DAEMON_LIBS@ \
+     @ZLIB_LIBS@ \
+     @PTHREAD_LIBS@ \
++    $(LIBICONV) \
+     ${LIBM}
+ 
+ noinst_HEADERS = daemon.h
+--- origsrc/transmission-2.93/gtk/Makefile.am	2018-01-23 13:17:43.000774300 -0600
++++ src/transmission-2.93/gtk/Makefile.am	2018-04-23 20:49:15.263648900 -0500
+@@ -91,6 +91,7 @@ transmission_gtk_LDADD = \
+     @CRYPTO_LIBS@ \
+     @ZLIB_LIBS@ \
+     @PTHREAD_LIBS@ \
++    $(LIBICONV) \
+     ${LIBM}
+ 
+ DESKTOP_IN_FILES=transmission-gtk.desktop.in
+--- origsrc/transmission-2.93/libtransmission/Makefile.am	2018-01-23 13:17:43.007774300 -0600
++++ src/transmission-2.93/libtransmission/Makefile.am	2018-04-23 20:46:51.671355300 -0500
+@@ -206,6 +206,7 @@ apps_ldadd = \
+   @CRYPTO_LIBS@ \
+   @PTHREAD_LIBS@ \
+   @ZLIB_LIBS@ \
++  $(LIBICONV) \
+   ${LIBM}
+ 
+ TEST_SOURCES = libtransmission-test.c
+--- origsrc/transmission-2.93/utils/Makefile.am	2018-01-23 13:17:43.122774600 -0600
++++ src/transmission-2.93/utils/Makefile.am	2018-04-23 20:48:22.376055900 -0500
+@@ -36,6 +36,7 @@ transmission_create_LDADD = \
+     @CRYPTO_LIBS@ \
+     @ZLIB_LIBS@ \
+     @PTHREAD_LIBS@ \
++    $(LIBICONV) \
+     ${LIBM}
+ transmission_edit_LDADD = $(transmission_create_LDADD)
+ transmission_show_LDADD = $(transmission_create_LDADD)

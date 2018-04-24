@@ -1,8 +1,8 @@
-inherit qt4-qmake gnome2
+inherit qt5-qmake gnome2
 
 NAME="transmission"
 VERSION=2.93
-RELEASE=1
+RELEASE=2
 CATEGORY="Net"
 SUMMARY="BitTorrent client"
 DESCRIPTION="Transmission is a cross-platform BitTorrent client that is
@@ -12,6 +12,7 @@ HOMEPAGE="http://www.transmissionbt.com/"
 SRC_URI="https://github.com/transmission/transmission-releases/raw/master/transmission-${VERSION}.tar.xz"
 PATCH_URI="
 	2.31-compile.patch
+	2.93-libiconv.patch
 	2.50-qmake.patch
 	2.92-platform-quota.patch
 "
@@ -49,8 +50,7 @@ src_compile() {
 
 	mkdir -p ${B}/qt
 	cd ${B}/qt
-	CXXFLAGS+=" -std=c++11"
-	cygqmake4 ${S}/qt/qtr.pro PREFIX=/usr
+	cygqmake5 ${S}/qt/qtr.pro PREFIX=/usr
 	cygmake
 }
 
